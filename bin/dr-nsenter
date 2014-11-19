@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -e $1 ]; then
+    echo "Usage: $0 <container_name_or_id>"
+    exit 1
+fi
+
+container=$1
+
+PID=$(docker inspect --format {{.State.Pid}} $container)
+sudo nsenter --target $PID --mount --uts --ipc --net --pid
+
