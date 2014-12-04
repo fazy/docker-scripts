@@ -10,5 +10,8 @@ dr-nsenter
 ----------
 
 Runs the [nsenter](https://github.com/jpetazzo/nsenter) command for the
-specified container. Requires nsenter to already be installed.
+specified container.
 
+Requires nsenter to already be installed:
+
+    docker run -v /usr/local/bin:/target jpetazzo/nsenter
